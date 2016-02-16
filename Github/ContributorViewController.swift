@@ -17,19 +17,23 @@ class ContributorViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GithubClient.sharedInstance().contributorOfRepositerie({
-            (success, result) in
-            if success {
-                self.contributors = result!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView.reloadData()
-                })
-            }else{
-                //showing error
-            }
-            
-        })
         
+        if !isConnectedToNetwork() {
+            showAlert(.connectivity)
+        }else{
+            GithubClient.sharedInstance().contributorOfRepositerie({
+                (success, result) in
+                if success {
+                    self.contributors = result!
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.tableView.reloadData()
+                    })
+                }else{
+                    self.showAlert(.server)
+                }
+            
+            })
+        }
     }
     
     

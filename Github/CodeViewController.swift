@@ -33,18 +33,23 @@ class CodeViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         star.text = String((SharedRepositerie.sharedInstance().repositerie?.stargazersCount)!)
         fork.text = String((SharedRepositerie.sharedInstance().repositerie?.forks)!)
         
+        if !isConnectedToNetwork() {
+            showAlert(.connectivity)
+        }else{
+            GithubClient.sharedInstance().contentOfRepositorie({
+                (success, result) in
+                if success {
+                    self.result = result!
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.tableView.reloadData()
+                    })
+                }else{
+                    self.showAlert(.server)
+                }
+            })
+
+        }
         
-        GithubClient.sharedInstance().contentOfRepositorie({
-            (success, result) in
-            if success {
-                self.result = result!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView.reloadData()
-                })
-            }else{
-                //Showing error
-            }
-        })
  
         
     }

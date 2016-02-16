@@ -18,18 +18,27 @@ class IssueViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        GithubClient.sharedInstance().issueOfRepositerie({
-            (success, result) in
+        
+        tableView.estimatedRowHeight = 65.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        
+        if !isConnectedToNetwork() {
+            showAlert(.connectivity)
+        }else{
+            GithubClient.sharedInstance().issueOfRepositerie({
+                (success, result) in
             
-            if success {
-                self.issues = result!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView.reloadData()
-                })
-            }else{
-                //show an alert
-            }
-        })
+                if success {
+                    self.issues = result!
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.tableView.reloadData()
+                    })
+                }else{
+                    self.showAlert(.server)
+                }
+            })
+        }
     }
     
     

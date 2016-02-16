@@ -23,6 +23,7 @@
 		3CBEC5DA1C71FCB600865EDB /* IssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBEC5D91C71FCB600865EDB /* IssueViewController.swift */; };
 		3CBEC5DF1C72274E00865EDB /* ContributorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBEC5DE1C72274E00865EDB /* ContributorViewController.swift */; };
 		3CBEC5E11C72295C00865EDB /* contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBEC5E01C72295C00865EDB /* contributor.swift */; };
+		3CBEC5E31C7357CB00865EDB /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBEC5E21C7357CA00865EDB /* ExtensionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		3CBEC5D91C71FCB600865EDB /* IssueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IssueViewController.swift; path = ../IssueViewController.swift; sourceTree = "<group>"; };
 		3CBEC5DE1C72274E00865EDB /* ContributorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributorViewController.swift; sourceTree = "<group>"; };
 		3CBEC5E01C72295C00865EDB /* contributor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contributor.swift; sourceTree = "<group>"; };
+		3CBEC5E21C7357CA00865EDB /* ExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				3C45322F1C6F6CB500831752 /* DisplaySearchCellView.swift */,
 				3C45322C1C6F5E7800831752 /* DisplayResultViewController.swift */,
 				3CBEC5DE1C72274E00865EDB /* ContributorViewController.swift */,
+				3CBEC5E21C7357CA00865EDB /* ExtensionViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				3C4532151C6AA29400831752 /* SearchViewController.swift in Sources */,
 				3CBEC5D81C70E03100865EDB /* Code.swift in Sources */,
 				3C4532131C6AA29400831752 /* AppDelegate.swift in Sources */,
+				3CBEC5E31C7357CB00865EDB /* ExtensionViewController.swift in Sources */,
 				3C4532301C6F6CB500831752 /* DisplaySearchCellView.swift in Sources */,
 				3CBEC5D61C70C8FF00865EDB /* CodeViewController.swift in Sources */,
 				3CBEC5DF1C72274E00865EDB /* ContributorViewController.swift in Sources */,

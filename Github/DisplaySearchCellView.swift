@@ -19,5 +19,9 @@ class DisplaySearchCellView: UITableViewCell {
     
     @IBOutlet weak var stars: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
     
 }

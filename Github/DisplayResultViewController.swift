@@ -18,24 +18,28 @@ class DisplayResultViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBOutlet weak var tableView: UITableView!
 
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        GithubClient.sharedInstance().popularRepositoriesByLanguage(languageName!, completionHandler: {
-            (succes, result) in
-            if succes {
-                self.result = result!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView.reloadData()
-                })
-            }else{
-                //show alert nothing found
-            }
-            
-        })
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+        
+        if !isConnectedToNetwork() {
+            showAlert(.connectivity)
+        }else{
+            GithubClient.sharedInstance().popularRepositoriesByLanguage(languageName!, completionHandler: {
+                (succes, result) in
+                if succes {
+                    self.result = result!
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.tableView.reloadData()
+                    })
+                }else{
+                   self.showAlert(.server)
+                }
+            
+            })
+        }
     }
-    
+
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if result.count > 0 {

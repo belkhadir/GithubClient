@@ -24,7 +24,7 @@ extension GithubClient {
                 if let result = result[JsonKey.items] as? [[String:AnyObject]]{
                     var fetchedResult = [Repositorie]()
                     for element in result {
-                        
+
                         fetchedResult.append(Repositorie(information: element))
                     }
                     completionHandler(success: true, result: fetchedResult)
@@ -64,8 +64,11 @@ extension GithubClient {
         var urlString = SharedRepositerie.sharedInstance().repositerie?.issuesUrl
         urlString = urlString!.stringByReplacingOccurrencesOfString("{/number}", withString: "",
             options: NSStringCompareOptions.LiteralSearch, range: nil)
+        let parameter = [
+            GithubClient.Parameter.sort: "updated"
+        ]
         
-        taskForGetMethod(urlString!, parameter: nil, completionHandeler: {
+        taskForGetMethod(urlString!, parameter: parameter, completionHandeler: {
             (result, error) in
             if error == nil {
                 if let result = result as? [[String:AnyObject]] {
